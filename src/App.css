@@ -1,38 +1,97 @@
+/* Backgrounds */
+
 .App {
-  text-align: center;
+  background-repeat: no-repeat;
+  background-image: url("../public/img/bg-sunny.jpg");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.App {
+  background-attachment: fixed;
+  background-size: 100% 100%;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+
+  font-family: "Poppins", sans-serif;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.App::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  backdrop-filter: blur(10px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Headers and text styles */
+
+.App h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 36px;
+  opacity: 0.95;
+  text-transform: capitalize;
+}
+
+.App h2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 70px;
+  opacity: 0.95;
+}
+
+.App h3 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  opacity: 0.9;
+}
+
+.App a {
+  text-decoration: none;
+}
+
+/* Content */
+
+.App .container {
+  position: relative;
+  z-index: 1;
+
+  margin: auto;
+  max-width: 700px;
+  width: 80%;
+  padding: 0;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+/* Weather forecast for 5 days */
+
+.App .forecast {
+  margin: 20px 40px 0px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 20px;
 }

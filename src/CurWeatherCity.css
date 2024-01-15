@@ -1,0 +1,146 @@
+/* Current weather in the city */
+
+.CurWeatherCity {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 90px;
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* City and date */
+
+.CurWeatherCity .current_city_date {
+  width: 60%;
+}
+
+.CurWeatherCity .current_date {
+  margin: 4px 0 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  gap: 4px;
+}
+
+.CurWeatherCity .current_day,
+.CurWeatherCity .current_month,
+.CurWeatherCity .current_time {
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+.CurWeatherCity .divider {
+  opacity: 0.3;
+  font-weight: 400;
+}
+
+/* Current temperature */
+
+.CurWeatherCity .current_temperature {
+  display: flex;
+  width: 40%;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.CurWeatherCity .cur_temp_number {
+  margin-right: 5px;
+}
+
+.CurWeatherCity .degrees {
+  padding-top: 4px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.CurWeatherCity #celsius {
+  display: block;
+  margin: 0;
+  padding: 3px 0 5px 0;
+  color: #fff;
+}
+
+.CurWeatherCity #fahrenheit {
+  color: #fff;
+}
+
+.CurWeatherCity #celsius:hover,
+.CurWeatherCity #fahrenheit:hover {
+  opacity: 0.95;
+}
+
+.CurWeatherCity .focused {
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.CurWeatherCity .active {
+  opacity: 0.5;
+}
+
+.CurWeatherCity .weather_type {
+  display: flex;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  top: 0;
+}
+
+.CurWeatherCity .weather_type_icon {
+  display: block;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  margin: 0 8px 0 0;
+}
+
+.CurWeatherCity .weather_type_text {
+  text-align: left;
+  width: fit-content;
+}
+
+.CurWeatherCity .weather_type_text h3 {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  margin: 3px 0;
+  padding: 0;
+}
+
+.CurWeatherCity .weather_type_text span {
+  margin: 0 5px;
+  text-transform: capitalize;
+  width: fit-content;
+}
+
+.CurWeatherCity .vertical_line {
+  margin: 0 5%;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  height: 61px;
+  color: transparent;
+}
+
+.CurWeatherCity .temperature {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}

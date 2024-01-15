@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import CurrentWeather from "./CurrentWeather";
+import ForecastDayCard from "./ForecastDayCard";
+import Footer from "./Footer";
+
+import "./App.css";
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Weater card area */}
+      <div className="container">
+        {/* Current weather */}
+        <CurrentWeather />
+
+        {/* Weather forecast */}
+        <div id="forecast">
+          <div className="forecast">
+            <ForecastDayCard
+              image="./img/icon-snow.png"
+              temperatureMax={12}
+              temperatureMin={4}
+              day="Saturday"
+            />
+            <ForecastDayCard
+              image="./img/icon-snow.png"
+              temperatureMax={12}
+              temperatureMin={4}
+              day="Sunday"
+            />
+            <ForecastDayCard
+              image="./img/icon-snow.png"
+              temperatureMax={12}
+              temperatureMin={4}
+              day="Monday"
+            />
+            <ForecastDayCard
+              image="./img/icon-snow.png"
+              temperatureMax={12}
+              temperatureMin={4}
+              day="Tuesday"
+            />
+            <ForecastDayCard
+              image="./img/icon-snow.png"
+              temperatureMax={12}
+              temperatureMin={4}
+              day="Wednesday"
+            />
+          </div>
+        </div>
+
+        {/* Link to the code */}
+        <Footer />
+      </div>
     </div>
   );
 }
-
-export default App;

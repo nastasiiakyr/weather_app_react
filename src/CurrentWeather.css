@@ -1,0 +1,46 @@
+/* Search and current weather background */
+
+.CurrentWeather {
+  background-image: url("../public/img/bg-sunny.jpg");
+  background-repeat: no-repeat;
+
+  max-width: 100%;
+  height: fit-content;
+  border-radius: 20px 20px 0px 0px;
+
+  position: relative;
+  left: 0px;
+  top: 0px;
+  padding: 30px 40px 20px;
+
+  background-attachment: cover;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.CurrentWeather .overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 0px 0px;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+.CurrentWeather .fast_search {
+  position: relative;
+  z-index: 2;
+}
+
+.CurrentWeather .fast_search {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 0 0 40px;
+  gap: 16px;
+}
