@@ -45,6 +45,11 @@ export default function FormatedDate(props) {
     });
   }
 
+  let apiKeyTime = "ESJVB6GUV4NN";
+  let apiUrlTime = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKeyTime}&format=json&by=position&lat=${props.lat}&lng=${props.lon}`;
+
+  axios.get(apiUrlTime).then(handleResponse);
+
   if (date.loaded) {
     return (
       <div className="current_date">
@@ -60,10 +65,6 @@ export default function FormatedDate(props) {
       </div>
     );
   } else {
-    let apiKeyTime = "ESJVB6GUV4NN";
-    let apiUrlTime = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKeyTime}&format=json&by=position&lat=${props.lat}&lng=${props.lon}`;
-
-      axios.get(apiUrlTime).then(handleResponse);
     return "";
   }
 }
