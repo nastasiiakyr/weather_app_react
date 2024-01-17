@@ -1,4 +1,5 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 
 import CurrentWeather from "./CurrentWeather";
 import ForecastDayCard from "./ForecastDayCard";
@@ -10,6 +11,7 @@ export default function App() {
   return (
     <div className="App">
       {/* Weater card area */}
+
       <div className="container">
         {/* Current weather */}
         <CurrentWeather />
