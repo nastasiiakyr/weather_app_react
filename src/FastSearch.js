@@ -1,14 +1,16 @@
 import React from "react";
 
+import CurWeatherCity from "./CurWeatherCity";
+
 import "./FastSearch.css";
 
 export default function FastSearch(props) {
+  function seeForecast(event) {
+    event.preventDefault();
+    return <CurWeatherCity city={props.city} />;
+  }
   return (
-    <a
-      href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md"
-      className="city"
-      id={props.id}
-    >
+    <a href="/" onClick={seeForecast} className="city">
       {props.city}
     </a>
   );

@@ -15,15 +15,15 @@ export default function CurrentWeather() {
       <Search />
       <div class="fast_search">
         <FastSearch id="currentLoc" city="Current location" />
-        <FastSearch id="kyiv" city="Kyiv" />
-        <FastSearch id="odesa" city="Odesa" />
-        <FastSearch id="kharkiv" city="Kharkiv" />
-        <FastSearch id="lviv" city="Lviv" />
-        <FastSearch id="dnipro" city="Dnipro" />
+        <FastSearch city="Kyiv" />
+        <FastSearch city="Odesa" />
+        <FastSearch city="Kharkiv" />
+        <FastSearch city="Lviv" />
+        <FastSearch city="Dnipro" />
       </div>
 
       {/* Current weather in the chosen city */}
-      <CurWeatherCity />
+      <CurWeatherCity city="Odesa"/>
     </div>
   );
 }
