@@ -1,17 +1,34 @@
 import React from "react";
 
-import CurWeatherCity from "./CurWeatherCity";
-
 import "./FastSearch.css";
 
-export default function FastSearch(props) {
-  function seeForecast(event) {
-    event.preventDefault();
-    return <CurWeatherCity city={props.city} />;
-  }
+export default function FastSearch({ fastSearchCity }) {
+  let fastSearchCities = [
+    "Current location",
+    "Kyiv",
+    "Odesa",
+    "Kharkiv",
+    "Lviv",
+    "Dnipro",
+  ];
+
   return (
-    <a href="/" onClick={seeForecast} className="city">
-      {props.city}
-    </a>
+    <div className="FastSearch">
+      {fastSearchCities.map((city, index) => {
+        return (
+          <a
+            key={index}
+            href="/"
+            onClick={(event) => {
+              event.preventDefault();
+              fastSearchCity(city);
+            }}
+            className="city"
+          >
+            {city}
+          </a>
+        );
+      })}
+    </div>
   );
 }

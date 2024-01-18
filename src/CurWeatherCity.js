@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Rings } from "react-loader-spinner";
 
 import FormatedDate from "./FormatedDate";
 
@@ -8,6 +7,13 @@ import "./CurWeatherCity.css";
 
 export default function CurWeatherCity(props) {
   const [curWeatheData, setCurWeatherData] = useState({ loaded: false });
+
+  useEffect(() => {
+    let apiKeyWeather = "8cd9be374c7c96c39a9fe73f4bf2f055";
+    let apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKeyWeather}&units=metric`;
+
+    axios.get(apiUrlCity).then(handleResponse);
+  }, [props.city]);
 
   function handleResponse(response) {
     setCurWeatherData({
@@ -29,12 +35,12 @@ export default function CurWeatherCity(props) {
         <div className="current_city_date">
           <h1 className="current_city">{curWeatheData.city}</h1>
 
-          <FormatedDate lat={curWeatheData.lat} lon={curWeatheData.lon} />
+          {/* <FormatedDate lat={curWeatheData.lat} lon={curWeatheData.lon} /> */}
         </div>
 
         {/* Current temperature and condition */}
         <div className="current_temperature">
-          <div class="weather_type">
+          <div className="weather_type">
             <img
               src="./img/icon-sunny-day.png"
               alt=""
@@ -82,20 +88,6 @@ export default function CurWeatherCity(props) {
       </div>
     );
   } else {
-    let apiKeyWeather = "8cd9be374c7c96c39a9fe73f4bf2f055";
-    let apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKeyWeather}&units=metric`;
-    axios.get(apiUrlCity).then(handleResponse);
-
-    return (
-      <Rings
-        visible={true}
-        height="80"
-        width="80"
-        color="#fff"
-        ariaLabel="rings-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-      />
-    );
+    return "";
   }
 }

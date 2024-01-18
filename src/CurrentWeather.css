@@ -32,15 +32,3 @@
   z-index: 1;
 }
 
-.CurrentWeather .fast_search {
-  position: relative;
-  z-index: 2;
-}
-
-.CurrentWeather .fast_search {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0 0 0 40px;
-  gap: 16px;
-}
