@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
+import { CurrentLocation } from "./CurrentLocation";
 import Search from "./Search";
 import FastSearch from "./FastSearch";
 import CurWeatherCity from "./CurWeatherCity";
@@ -7,7 +8,12 @@ import CurWeatherCity from "./CurWeatherCity";
 import "./CurrentWeather.css";
 
 export default function CurrentWeather() {
-  const [city, setCity] = useState("Kyiv");
+  const currentCity = CurrentLocation();
+  const [city, setCity] = useState("");
+
+  useEffect(() => {
+    setCity(currentCity);
+  }, [currentCity]);
 
   function handleNewCity(newCity) {
     setCity(newCity);

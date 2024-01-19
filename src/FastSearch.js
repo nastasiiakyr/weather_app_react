@@ -1,5 +1,6 @@
 import React from "react";
 
+import { CurrentLocation } from "./CurrentLocation";
 import "./FastSearch.css";
 
 export default function FastSearch({ fastSearchCity }) {
@@ -12,6 +13,12 @@ export default function FastSearch({ fastSearchCity }) {
     "Dnipro",
   ];
 
+  const currentCity = CurrentLocation();
+
+  function getCurrentLocation() {
+    fastSearchCity(currentCity);
+  }
+
   return (
     <div className="FastSearch">
       {fastSearchCities.map((city, index) => {
@@ -21,7 +28,9 @@ export default function FastSearch({ fastSearchCity }) {
             href="/"
             onClick={(event) => {
               event.preventDefault();
-              fastSearchCity(city);
+              city !== "Current location"
+                ? fastSearchCity(city)
+                : getCurrentLocation();
             }}
             className="city"
           >
