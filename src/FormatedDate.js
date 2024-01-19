@@ -1,8 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { useInterval } from "react-use";
 import axios from "axios";
 
 export default function FormatedDate(props) {
   let [date, setDate] = useState({ loaded: false });
+
+  const fetchData = useCallback(async () => {
+    let apiKeyTime = "ESJVB6GUV4NN";
+    let apiUrlTime = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKeyTime}&format=json&by=position&lat=${props.lat}&lng=${props.lon}`;
+    axios.get(apiUrlTime).then(handleResponse);
+  }, [props.lat, props.lon]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  useInterval(() => {
+    fetchData();
+  }, 60000);
 
   function handleResponse(response) {
     // Getting access to city current UNIX time in API and performing it to UTC timezone
@@ -60,10 +75,6 @@ export default function FormatedDate(props) {
       </div>
     );
   } else {
-    let apiKeyTime = "XSSC4OHEZ58A";
-    let apiUrlTime = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKeyTime}&format=json&by=position&lat=${props.lat}&lng=${props.lon}`;
-
-    axios.get(apiUrlTime).then(handleResponse);
     return "";
   }
 }

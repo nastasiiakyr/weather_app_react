@@ -35,7 +35,7 @@ export default function CurWeatherCity(props) {
         <div className="current_city_date">
           <h1 className="current_city">{curWeatheData.city}</h1>
 
-          {/* <FormatedDate lat={curWeatheData.lat} lon={curWeatheData.lon} /> */}
+          <FormatedDate lat={curWeatheData.lat} lon={curWeatheData.lon} />
         </div>
 
         {/* Current temperature and condition */}
