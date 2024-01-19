@@ -12,6 +12,8 @@ export default function Search({ searchNewCity }) {
   function handleSearch(event) {
     event.preventDefault();
     searchNewCity(city);
+    setCity("");
+    event.target.reset();
   }
 
   return (
@@ -36,7 +38,6 @@ export default function Search({ searchNewCity }) {
         className="search_input"
         type="search"
         name="search_city"
-        id="search_city"
         placeholder="Search"
         autoComplete="off"
         onChange={handleCityChange}

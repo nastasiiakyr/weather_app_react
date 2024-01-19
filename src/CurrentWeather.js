@@ -11,7 +11,6 @@ export default function CurrentWeather() {
 
   function handleNewCity(newCity) {
     setCity(newCity);
-    console.log(city);
   }
 
   return (
