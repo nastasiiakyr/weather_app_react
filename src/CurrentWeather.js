@@ -12,7 +12,7 @@ export default function CurrentWeather() {
   const [city, setCity] = useState("");
 
   useEffect(() => {
-    setCity(currentCity);
+    (currentCity)?setCity(currentCity):setCity("Odesa")
   }, [currentCity]);
 
   function handleNewCity(newCity) {
