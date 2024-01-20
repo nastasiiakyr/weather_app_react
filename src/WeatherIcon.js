@@ -97,7 +97,7 @@ export default function WeatherIcon(props) {
 
   useEffect(() => {
     handleBackground();
-  }, [props.icon, handleBackground]);
+  }, [props.icon]);
 
   return (
     <img
