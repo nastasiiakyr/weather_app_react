@@ -1,20 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-import CurrentWeather from "./CurrentWeather";
+import { CurrentLocation } from "./CurrentLocation";
+import Search from "./Search";
+import FastSearch from "./FastSearch";
+import CurWeatherCity from "./CurWeatherCity";
 import ForecastDayCard from "./ForecastDayCard";
 import Footer from "./Footer";
 
 import "./App.css";
 
 export default function App() {
+  const currentCity = CurrentLocation();
+  const [city, setCity] = useState("");
+
+  useEffect(() => {
+    currentCity ? setCity(currentCity) : setCity("Odesa");
+  }, [currentCity]);
+
+  function handleNewCity(newCity) {
+    setCity(newCity);
+  }
+
   return (
     <div className="App">
       {/* Weater card area */}
 
       <div className="container">
         {/* Current weather */}
-        <CurrentWeather />
+        <div className="currentWeather">
+          <div className="overlay" />
+
+          {/* Search */}
+          <Search searchNewCity={handleNewCity} />
+          <FastSearch fastSearchCity={handleNewCity} />
+
+          {/* Current weather in the chosen city */}
+          <CurWeatherCity city={city} />
+        </div>
 
         {/* Weather forecast */}
         <div id="forecast">
