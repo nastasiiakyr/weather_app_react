@@ -13,6 +13,7 @@ import "./App.css";
 export default function App() {
   const currentCity = CurrentLocation();
   const [city, setCity] = useState("");
+  const [background, setBackground] = useState("./img/bg_sample.jpg");
 
   useEffect(() => {
     currentCity ? setCity(currentCity) : setCity("Odesa");
@@ -22,13 +23,20 @@ export default function App() {
     setCity(newCity);
   }
 
+  function handleBackground(newBackground) {
+    setBackground(newBackground);
+  }
+
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundImage: `url(${background})` }}>
       {/* Weater card area */}
 
       <div className="container">
         {/* Current weather */}
-        <div className="currentWeather">
+        <div
+          className="currentWeather"
+          style={{ backgroundImage: `url(${background})` }}
+        >
           <div className="overlay" />
 
           {/* Search */}
@@ -36,7 +44,7 @@ export default function App() {
           <FastSearch fastSearchCity={handleNewCity} />
 
           {/* Current weather in the chosen city */}
-          <CurrentWeather city={city} />
+          <CurrentWeather city={city} bg={handleBackground} />
         </div>
 
         {/* Weather forecast */}

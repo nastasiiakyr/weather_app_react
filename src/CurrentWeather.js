@@ -29,6 +29,10 @@ export default function CurrentWeather(props) {
     });
   }
 
+  function handleBackground(newBackground) {
+    props.bg(newBackground);
+  }
+
   if (curWeatherData.loaded) {
     return (
       <div className="CurrentWeather">
@@ -45,6 +49,7 @@ export default function CurrentWeather(props) {
             <WeatherIcon
               icon={curWeatherData.icon}
               condition={curWeatherData.condition}
+              bg={handleBackground}
             />
             <div className="weather_type_text">
               <h3>

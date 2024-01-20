@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function WeatherIcon(props) {
   const weatherIcons = {
@@ -88,6 +88,16 @@ export default function WeatherIcon(props) {
       background: "./img/bg_sample.jpg",
     },
   };
+
+  function handleBackground() {
+    if (weatherIcons[props.icon]) {
+      props.bg(weatherIcons[props.icon].background);
+    }
+  }
+
+  useEffect(() => {
+    handleBackground();
+  }, [props.icon, handleBackground]);
 
   return (
     <img
