@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { CurrentLocation } from "./CurrentLocation";
 import Search from "./Search";
 import FastSearch from "./FastSearch";
-import CurWeatherCity from "./CurWeatherCity";
+import CurrentWeather from "./CurrentWeather";
 import ForecastDayCard from "./ForecastDayCard";
 import Footer from "./Footer";
 
@@ -36,7 +36,7 @@ export default function App() {
           <FastSearch fastSearchCity={handleNewCity} />
 
           {/* Current weather in the chosen city */}
-          <CurWeatherCity city={city} />
+          <CurrentWeather city={city} />
         </div>
 
         {/* Weather forecast */}
