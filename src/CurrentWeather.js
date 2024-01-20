@@ -3,6 +3,7 @@ import axios from "axios";
 
 import FormatedDate from "./FormatedDate";
 import WeatherIcon from "./WeatherIcon";
+import SwitchTemperature from "./SwitchTemperature";
 
 import "./CurrentWeather.css";
 
@@ -68,27 +69,7 @@ export default function CurrentWeather(props) {
 
           <div className="vertical_line">|</div>
 
-          <div className="temperature">
-            <h2 className="cur_temp_number" id="cur_temp_number">
-              {Math.round(curWeatherData.temperature)}
-            </h2>
-            <p className="degrees">
-              <a
-                href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md"
-                className="celsius focused"
-                id="celsius"
-              >
-                °C
-              </a>
-              <a
-                href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md"
-                className="fahrenheit active"
-                id="fahrenheit"
-              >
-                °F
-              </a>
-            </p>
-          </div>
+          <SwitchTemperature celsius={curWeatherData.temperature} />
         </div>
       </div>
     );

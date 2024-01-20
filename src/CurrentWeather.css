@@ -32,7 +32,6 @@
   font-weight: 400;
 }
 
-
 .CurrentWeather .divider {
   opacity: 0.3;
   font-weight: 400;
@@ -63,19 +62,19 @@
   line-height: 20px;
 }
 
-.CurrentWeather #celsius {
+.CurrentWeather .celsius {
   display: block;
   margin: 0;
   padding: 3px 0 5px 0;
   color: #fff;
 }
 
-.CurrentWeather #fahrenheit {
+.CurrentWeather .fahrenheit {
   color: #fff;
 }
 
-.CurrentWeather #celsius:hover,
-.CurrentWeather #fahrenheit:hover {
+.CurrentWeather .celsius:hover,
+.CurrentWeather .fahrenheit:hover {
   opacity: 0.95;
 }
 
